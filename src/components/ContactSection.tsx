@@ -104,7 +104,7 @@ const ContactSection = () => {
   };
 
   const inputClass = (hasError: boolean) =>
-    `w-full bg-card border ${hasError ? "border-destructive ring-1 ring-destructive/30" : "border-border"} rounded-xl px-4 py-3 pl-11 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ember/50 focus:border-ember transition-all`;
+    `w-full bg-card border ${hasError ? "border-destructive ring-1 ring-destructive/30" : "border-border"} rounded-xl px-3 py-3 pl-10 text-foreground text-base focus:outline-none focus:ring-2 focus:ring-ember/50 focus:border-ember transition-all`;
 
   return (
     <section id="contact" className="py-20 md:py-28 bg-background">
@@ -195,35 +195,35 @@ const ContactSection = () => {
 
               {activeTab === "reservation" ? (
                 <form onSubmit={handleResSubmit} className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     <div className="relative">
-                      <User size={16} className="absolute left-3.5 top-3.5 text-ember" />
+                      <User size={16} className="absolute left-3 top-3 text-ember" />
                       <input name="name" value={resForm.name} onChange={handleResChange} placeholder="Your Name" className={inputClass(!!resErrors.name)} />
                       {resErrors.name && <p className="text-destructive text-xs mt-1 flex items-center gap-1"><AlertCircle size={12}/>{resErrors.name}</p>}
                     </div>
                     <div className="relative">
-                      <Mail size={16} className="absolute left-3.5 top-3.5 text-ember" />
+                      <Mail size={16} className="absolute left-3 top-3 text-ember" />
                       <input name="email" type="email" value={resForm.email} onChange={handleResChange} placeholder="Email" className={inputClass(!!resErrors.email)} />
                       {resErrors.email && <p className="text-destructive text-xs mt-1 flex items-center gap-1"><AlertCircle size={12}/>{resErrors.email}</p>}
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     <div className="relative">
-                      <Calendar size={16} className="absolute left-3.5 top-3.5 text-ember" />
+                      <Calendar size={16} className="absolute left-3 top-3 text-ember" />
                       <input name="date" type="date" value={resForm.date} onChange={handleResChange} className={inputClass(!!resErrors.date)} />
                       {resErrors.date && <p className="text-destructive text-xs mt-1 flex items-center gap-1"><AlertCircle size={12}/>{resErrors.date}</p>}
                     </div>
-                    <div className="relative">
-                      <Clock size={16} className="absolute left-3.5 top-3.5 text-ember" />
-                      <input name="time" type="time" value={resForm.time} onChange={handleResChange} className={inputClass(!!resErrors.time)} />
+                    <div className="relative min-w-0">
+                      <Clock size={16} className="absolute left-3 top-3 text-ember" />
+                      <input name="time" type="time" value={resForm.time} onChange={handleResChange} className={`${inputClass(!!resErrors.time)} min-w-0`} />
                       {resErrors.time && <p className="text-destructive text-xs mt-1 flex items-center gap-1"><AlertCircle size={12}/>{resErrors.time}</p>}
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     <div className="relative">
-                      <Users size={16} className="absolute left-3.5 top-3.5 text-ember" />
+                      <Users size={16} className="absolute left-3 top-3 text-ember" />
                       <select name="guests" value={resForm.guests} onChange={handleResChange} className={inputClass(!!resErrors.guests)}>
                         <option value="">Guests</option>
                         {[1,2,3,4,5,6,7,8].map(n => <option key={n} value={String(n)}>{n} {n === 1 ? "Guest" : "Guests"}</option>)}
@@ -232,7 +232,7 @@ const ContactSection = () => {
                       {resErrors.guests && <p className="text-destructive text-xs mt-1 flex items-center gap-1"><AlertCircle size={12}/>{resErrors.guests}</p>}
                     </div>
                     <div className="relative">
-                      <Briefcase size={16} className="absolute left-3.5 top-3.5 text-ember" />
+                      <Briefcase size={16} className="absolute left-3 top-3 text-ember" />
                       <select name="occasion" value={resForm.occasion} onChange={handleResChange} className={inputClass(false)}>
                         <option value="">Occasion (optional)</option>
                         <option value="casual">Casual Dining</option>
@@ -245,7 +245,7 @@ const ContactSection = () => {
                   </div>
 
                   <div className="relative">
-                    <MessageSquare size={16} className="absolute left-3.5 top-3.5 text-ember" />
+                    <MessageSquare size={16} className="absolute left-3 top-3 text-ember" />
                     <textarea name="message" value={resForm.message} onChange={handleResChange} placeholder="Special Requests (optional)" rows={3} className={`${inputClass(false)} resize-none`} />
                   </div>
 
@@ -262,25 +262,25 @@ const ContactSection = () => {
               ) : (
                 <form onSubmit={handleConSubmit} className="space-y-4">
                   <div className="relative">
-                    <User size={16} className="absolute left-3.5 top-3.5 text-ember" />
+                    <User size={16} className="absolute left-3 top-3 text-ember" />
                     <input name="name" value={conForm.name} onChange={handleConChange} placeholder="Your Name" className={inputClass(!!conErrors.name)} />
                     {conErrors.name && <p className="text-destructive text-xs mt-1 flex items-center gap-1"><AlertCircle size={12}/>{conErrors.name}</p>}
                   </div>
 
                   <div className="relative">
-                    <Mail size={16} className="absolute left-3.5 top-3.5 text-ember" />
+                    <Mail size={16} className="absolute left-3 top-3 text-ember" />
                     <input name="email" type="email" value={conForm.email} onChange={handleConChange} placeholder="Email Address" className={inputClass(!!conErrors.email)} />
                     {conErrors.email && <p className="text-destructive text-xs mt-1 flex items-center gap-1"><AlertCircle size={12}/>{conErrors.email}</p>}
                   </div>
 
                   <div className="relative">
-                    <Briefcase size={16} className="absolute left-3.5 top-3.5 text-ember" />
+                    <Briefcase size={16} className="absolute left-3 top-3 text-ember" />
                     <input name="subject" value={conForm.subject} onChange={handleConChange} placeholder="Subject" className={inputClass(!!conErrors.subject)} />
                     {conErrors.subject && <p className="text-destructive text-xs mt-1 flex items-center gap-1"><AlertCircle size={12}/>{conErrors.subject}</p>}
                   </div>
 
                   <div className="relative">
-                    <MessageSquare size={16} className="absolute left-3.5 top-3.5 text-ember" />
+                    <MessageSquare size={16} className="absolute left-3 top-3 text-ember" />
                     <textarea name="message" value={conForm.message} onChange={handleConChange} placeholder="Your Message" rows={5} className={`${inputClass(!!conErrors.message)} resize-none`} />
                     {conErrors.message && <p className="text-destructive text-xs mt-1 flex items-center gap-1"><AlertCircle size={12}/>{conErrors.message}</p>}
                   </div>
