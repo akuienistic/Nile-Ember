@@ -125,13 +125,13 @@ const HeroSection = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 1.2, duration: 0.5 }}
-          className="flex flex-col sm:flex-row items-center gap-4"
+          className="flex flex-wrap justify-center gap-3 sm:gap-4"
         >
           <motion.button
             whileHover={{ scale: 1.1, boxShadow: "0 0 25px hsla(51,100%,50%,0.5)" }}
             whileTap={{ scale: 0.95 }}
             onClick={() => document.querySelector("#menu")?.scrollIntoView({ behavior: "smooth" })}
-            className="bg-gradient-ember text-primary-foreground font-semibold px-8 py-3 rounded-full text-sm md:text-base tracking-wide glow-amber transition-all"
+            className="bg-gradient-ember text-primary-foreground font-semibold px-6 sm:px-8 py-3 rounded-full text-xs sm:text-sm md:text-base tracking-wide glow-amber transition-all whitespace-nowrap"
           >
             Explore Our Menu
           </motion.button>
@@ -139,7 +139,7 @@ const HeroSection = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-            className="border border-gold/40 text-gold font-medium px-8 py-3 rounded-full text-sm md:text-base tracking-wide hover:bg-gold/10 transition-all"
+            className="border border-gold/40 text-gold font-medium px-6 sm:px-8 py-3 rounded-full text-xs sm:text-sm md:text-base tracking-wide hover:bg-gold/10 transition-all whitespace-nowrap"
           >
             Reserve a Table
           </motion.button>
