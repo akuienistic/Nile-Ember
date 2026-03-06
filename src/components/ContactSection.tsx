@@ -209,12 +209,12 @@ const ContactSection = () => {
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                    <div className="relative w-full">
+                    <div className="relative">
                       <Calendar size={16} className="absolute left-3 top-3 text-ember" />
                       <input name="date" type="date" value={resForm.date} onChange={handleResChange} className={`${inputClass(!!resErrors.date)}`} />
                       {resErrors.date && <p className="text-destructive text-xs mt-1 flex items-center gap-1"><AlertCircle size={12}/>{resErrors.date}</p>}
                     </div>
-                    <div className="relative w-full">
+                    <div className="relative">
                       <Clock size={16} className="absolute left-3 top-3 text-ember" />
                       <input name="time" type="time" value={resForm.time} onChange={handleResChange} className={`${inputClass(!!resErrors.time)}`} />
                       {resErrors.time && <p className="text-destructive text-xs mt-1 flex items-center gap-1"><AlertCircle size={12}/>{resErrors.time}</p>}
