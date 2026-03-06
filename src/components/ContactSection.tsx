@@ -104,7 +104,7 @@ const ContactSection = () => {
   };
 
   const inputClass = (hasError: boolean) =>
-    `w-full bg-card border ${hasError ? "border-destructive ring-1 ring-destructive/30" : "border-border"} rounded-xl px-3 py-3 pl-10 text-foreground text-base focus:outline-none focus:ring-2 focus:ring-ember/50 focus:border-ember transition-all`;
+    `w-full bg-card border ${hasError ? "border-destructive ring-1 ring-destructive/30" : "border-border"} rounded-lg px-2 py-2.5 pl-8 text-foreground text-base focus:outline-none focus:ring-2 focus:ring-ember/50 focus:border-ember transition-all box-border`;
 
   return (
     <section id="contact" className="py-20 md:py-28 bg-background">
@@ -166,7 +166,7 @@ const ContactSection = () => {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="bg-card rounded-2xl shadow-xl p-6 md:p-8 border border-border/50">
+            <div className="bg-card rounded-2xl shadow-xl p-3 sm:p-4 md:p-8 border border-border/50 overflow-hidden">
               {/* Tab switcher */}
               <div className="flex gap-2 mb-8 bg-muted rounded-xl p-1">
                 <button
@@ -209,14 +209,14 @@ const ContactSection = () => {
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                    <div className="relative">
+                    <div className="relative w-full">
                       <Calendar size={16} className="absolute left-3 top-3 text-ember" />
-                      <input name="date" type="date" value={resForm.date} onChange={handleResChange} className={inputClass(!!resErrors.date)} />
+                      <input name="date" type="date" value={resForm.date} onChange={handleResChange} className={`${inputClass(!!resErrors.date)} w-full max-w-full`} />
                       {resErrors.date && <p className="text-destructive text-xs mt-1 flex items-center gap-1"><AlertCircle size={12}/>{resErrors.date}</p>}
                     </div>
-                    <div className="relative min-w-0">
+                    <div className="relative w-full">
                       <Clock size={16} className="absolute left-3 top-3 text-ember" />
-                      <input name="time" type="time" value={resForm.time} onChange={handleResChange} className={`${inputClass(!!resErrors.time)} min-w-0`} />
+                      <input name="time" type="time" value={resForm.time} onChange={handleResChange} className={`${inputClass(!!resErrors.time)} w-full max-w-full`} />
                       {resErrors.time && <p className="text-destructive text-xs mt-1 flex items-center gap-1"><AlertCircle size={12}/>{resErrors.time}</p>}
                     </div>
                   </div>
